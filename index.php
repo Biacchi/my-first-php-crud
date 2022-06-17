@@ -12,12 +12,15 @@
   </head>
   <body>
     <?php require_once 'process.php'; ?>
+
+    <!--Getting the db rows-->
     <?php
         $mysqli = new mysqli('localhost', 'root', '', 'crud') or die(msqli_error($mysqli));
         $result = $mysqli->query("SELECT * FROM data") or die($mysqli->error);
     ?>
 
-    <div class="d-flex justify-content-center">
+    <!--Table-->
+    <div class="container d-flex justify-content-center">
         <table class="table">
             <thead>
                 <tr>
@@ -32,13 +35,16 @@
                 <tr>
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $row['location']; ?></td>
-                    <td></td>
+                    <td>
+                        <a href="index.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Edit</a>
+                        <a href="process.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
+                    </td>
                 </tr>
                 <?php endwhile; ?>
         </table>
     </div>
 
-
+    <!--Function that gets the db as an object-->
     <?php
         //pre_r( $result );
         pre_r($result->fetch_assoc());
