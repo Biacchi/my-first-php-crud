@@ -26,9 +26,17 @@
                     <th colspan="2">Action</th>
                 </tr>
             </thead>
+
+        <?php
+            while ($row = $result->fetch_assoc()): ?>
+                <tr>
+                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['location']; ?></td>
+                    <td></td>
+                </tr>
+                <?php endwhile; ?>
         </table>
     </div>
-
 
 
     <?php
