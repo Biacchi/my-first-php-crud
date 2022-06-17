@@ -12,8 +12,37 @@
   </head>
   <body>
     <?php require_once 'process.php'; ?>
+    <?php
+        $mysqli = new mysqli('localhost', 'root', '', 'crud') or die(msqli_error($mysqli));
+        $result = $mysqli->query("SELECT * FROM data") or die($mysqli->error);
+    ?>
+
+    <div class="d-flex justify-content-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th colspan="2">Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+
+
+    <?php
+        //pre_r( $result );
+        pre_r($result->fetch_assoc());
+        function pre_r( $array ) {
+            echo '<pre>';
+            print_r($array);
+            echo '</pre>';
+        }
+    ?>
+
     <h1 class="text-center">Hello, world!</h1>
-   
+
     <div class="container d-flex justify-content-center">
         <form action="process.php" method="POST">
             <div class="mb-3">
