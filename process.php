@@ -10,4 +10,9 @@ if (isset($_POST['save'])){
             die($mysqli->error);
 }
 
+if (isset($_GET['delete'])) {
+    $id = $_GET['delete'];
+    $mysqli->query("DELETE FROM data WHERE id=$id") or die($mysqli->error);
+}
+
 ?>
