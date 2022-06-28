@@ -13,6 +13,19 @@
   <body>
     <?php require_once 'process.php'; ?>
 
+    <?php 
+    // This uses the bootstrap classes to change the color of the session methods based on their type
+    if (isset($_SESSION['message'])): ?>
+    <div class="alert alert-<?=$_SESSION['msg_type']?>">
+
+        <?php
+            echo $_SESSION['message'];
+            unset($_SESSION['message']); 
+        ?>
+    </div>
+    <?php endif ?>
+    
+
     <!--Getting the db rows-->
     <?php
         $mysqli = new mysqli('localhost', 'root', '', 'crud') or die(msqli_error($mysqli));
