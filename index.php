@@ -74,11 +74,11 @@
         <form action="process.php" method="POST">
             <div class="mb-3">
                 <label>Name</label>
-                <input type="text" class="form-control" name="name" value="Enter your name">
+                <input type="text" class="form-control" name="name" placeholder="Enter your name">
             </div>
             <div class="mb-3">
                 <label>Location</label>
-                <input type="text" class="form-control" name="location" value="Enter your location">
+                <input type="text" class="form-control" name="location" placeholder="Enter your location">
             </div>
             <div>
                 <button type="submit" class="btn btn-primary" name="save">Save</button>
