@@ -72,19 +72,28 @@
 
     <div class="container d-flex justify-content-center">
         <form action="process.php" method="POST">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="mb-3">
                 <label>Name</label>
-                <input type="text" class="form-control" name="name" placeholder="Enter your name">
+                <input type="text" class="form-control" name="name" value="<?php echo $name; ?>" placeholder="Enter your name">
             </div>
             <div class="mb-3">
                 <label>Location</label>
-                <input type="text" class="form-control" name="location" placeholder="Enter your location">
+                <input type="text" class="form-control" name="location" value="<?php echo $location; ?>" placeholder="Enter your location">
             </div>
             <div>
-                <button type="submit" class="btn btn-primary" name="save">Save</button>
+                <?php 
+                if ($update == true):
+                ?> 
+                    <button type="submit" class="btn btn-info" name="update">Update</button>
+                <?php else: ?>
+                    <button type="submit" class="btn btn-primary" name="save">Save</button>
+                <?php endif; ?>
             </div>
         </form>
     </div>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
